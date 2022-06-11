@@ -3,6 +3,25 @@ ini_set('display_errors',1);
 
 include '../vendor/autoload.php';
 
+$database = 'db_store';
+$username = 'root';
+$password = 'root';
+
+$connection = new PDO('mysql:host=localhost;dbname='.$database,$username,$password);
+
+
+
+$query = 'SELECT * FROM tb_category;';
+$preparacao = $connection->prepare($query);
+$preparacao->execute();
+
+
+
+while ($dados = $preparacao->fetch()) {
+    var_dump($dados);
+}
+
+/*
 use App\Controller\CategoryController;
 use App\Controller\ErrorController;
 use App\Controller\IndexController;
@@ -38,7 +57,7 @@ $methodName = $routes[$url] ['method'];
 
 (new $controllerName())-> $methodName();
 
-
+*/
 
 
 
