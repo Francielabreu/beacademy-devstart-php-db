@@ -5,19 +5,23 @@ declare(strict_types=1);
 
 
 namespace App\Controller;
+use App\Connection\Connection;
 
 class CategoryController extends AbstractController{
 
-    public function listCategory():void
+
+
+    public function listAction():void
     {
-        parent::render('Category/Listar');
-    }
-    public function addCategory():void
-    {
-       parent::render('Category/Adicionar');
-    }
-    public function editCategory():void
-    {
-       parent::render('Category/Editar');
+        //realizando conexão e selecionando para mostrar na view
+        $con = Connection::getConnection(); 
+        $result = $con->prepare('SELECT * FROM tb_category');
+        $result->execute();
+        
+        $cat = $result->fetch(\PDO::FETCH_ASSOC);
+
+        
+
+        parent::render('Category/list');
     }
 }
