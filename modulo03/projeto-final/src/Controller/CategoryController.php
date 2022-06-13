@@ -16,12 +16,8 @@ class CategoryController extends AbstractController{
         //realizando conexão e selecionando para mostrar na view
         $con = Connection::getConnection(); 
         $result = $con->prepare('SELECT * FROM tb_category');
-        $result->execute();
-        
-        $cat = $result->fetch(\PDO::FETCH_ASSOC);
+        $result->execute();      
 
-        
-
-        parent::render('Category/list');
+        parent::render('Category/list', $result);
     }
 }
