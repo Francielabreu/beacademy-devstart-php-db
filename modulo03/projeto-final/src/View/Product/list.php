@@ -2,6 +2,7 @@
 
 <div>
     <a href="/produtos/novo" class="btn btn-primary btn-sm mb-3">Novo Produto</a>
+    <a href="/produtos/relatorio" class="btn btn-secondary btn-sm mb-3">Gerar PDF</a>
 </div>
 
 <table class="table table-hover table-striped">

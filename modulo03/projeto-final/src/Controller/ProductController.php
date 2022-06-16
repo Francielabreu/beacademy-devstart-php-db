@@ -104,4 +104,10 @@ class ProductController extends AbstractController{
         
         parent::renderMessage('Produto Excluido com sucesso');
     }
+
+
+    public function reportAction():void
+    {
+        $html = "<h1>Relatorio</h1>";
+    }
 }
