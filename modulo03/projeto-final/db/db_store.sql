@@ -24,7 +24,7 @@ CREATE TABLE tb_product(
     description VARCHAR(100) NOT NULL,
     photo VARCHAR(255) NOT NULL,
     valor FLOAT(5,2) NOT NULL,
-    categoria_id INT(11) NOT NULL ,
+    category_id INT(11) NOT NULL ,
     quantity INT(5) NOT NULL,
     created_at DATETIME NOT NULL
 );
