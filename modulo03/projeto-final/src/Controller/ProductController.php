@@ -51,4 +51,17 @@ class ProductController extends AbstractController{
     {
         parent::render('Product/edit');
     }
+
+
+
+    public function removeAction():void
+    {
+        $id = $_GET['id'];
+        $con = Connection::getConnection();
+        $result =$con->prepare("DELETE FROM tb_product WHERE id='{$id}'");
+        $result->execute();
+
+        $message = "Produto Excluido com sucesso";
+        include dirname(__DIR__).'/View/_partials/message.php';
+    }
 }
