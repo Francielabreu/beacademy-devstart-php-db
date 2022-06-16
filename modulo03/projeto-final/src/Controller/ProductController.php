@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 use App\Connection\Connection;
-use LDAP\Result;
+
 
 class ProductController extends AbstractController{
 
@@ -21,7 +21,28 @@ class ProductController extends AbstractController{
 
     public function addAction():void
     {
-        parent::render('Product/add');
+        $con = Connection::getConnection(); 
+
+        if ($_POST) {
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $photo = $_POST['photo'];
+            $valor = $_POST['valor'];
+            $quantity = $_POST['quantity'];
+            $category_id = $_POST['category'];
+            $created_at= date('Y-m-d H:i:s');
+
+            $query = $con->prepare("INSERT INTO tb_product (name,description,photo,valor,quantity,category_id,created_at) 
+            VALUES
+            ('{$name}','{$description}','{$photo}','{$valor}','{$quantity}','{$category_id}','{$created_at}')");
+
+            $query->execute();
+
+            echo "Produto cadastrado com sucesso";
+        }
+        $result = $con->prepare("SELECT * FROM tb_category");
+        $result->execute();
+        parent::render('Product/add',$result);
     }
 
 
