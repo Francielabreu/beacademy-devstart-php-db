@@ -38,11 +38,15 @@ class ProductController extends AbstractController{
 
             $query->execute();
 
-            echo "Produto cadastrado com sucesso";
+            parent::renderMessage('Produto Cadastrado com sucesso');
+            
+  
         }
         $result = $con->prepare("SELECT * FROM tb_category");
         $result->execute();
         parent::render('Product/add',$result);
+        
+       
     }
 
 
@@ -61,7 +65,7 @@ class ProductController extends AbstractController{
         $result =$con->prepare("DELETE FROM tb_product WHERE id='{$id}'");
         $result->execute();
 
-        $message = "Produto Excluido com sucesso";
-        include dirname(__DIR__).'/View/_partials/message.php';
+        
+        parent::renderMessage('Produto Excluido com sucesso');
     }
 }
