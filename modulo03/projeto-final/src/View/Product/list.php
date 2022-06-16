@@ -15,7 +15,7 @@
             <th>VALOR</th>
             <th>QUANTIDADE</th>
             <th>DATA DE CADASTRO</th>
-            <th>Ações</th>
+            <th>AÇÕES</th>
         </tr>
     </thead>
     <Tbody>
