@@ -139,7 +139,7 @@ class ProductController extends AbstractController
 
 
 
-        $pdf = new Dompdf();
+        //$pdf = new Dompdf();
         $pdf->loadHtml($html);
         $pdf->render();
         $pdf->stream();
