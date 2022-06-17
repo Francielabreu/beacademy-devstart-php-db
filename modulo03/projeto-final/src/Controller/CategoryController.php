@@ -32,7 +32,7 @@ class CategoryController extends AbstractController{
             $result = $con->prepare("INSERT INTO tb_category(name,description) VALUE('{$name}', '{$description}')");
             $result->execute();    
 
-            echo 'Categoria Cadastrada com Sucesso!';
+            parent::renderMessage('Categoria Cadastrada com sucesso');
           
         }
         parent::render('Category/add');
@@ -45,7 +45,7 @@ class CategoryController extends AbstractController{
         $id= $_GET['id'];
         $result = $con->prepare("DELETE FROM tb_category WHERE id='{$id}'");
         $result->execute();
-        echo 'Categoria Excluida com Sucesso!';
+        parent::renderMessage('Categoria Excluida com sucesso');
     }
 
     public function updateAction():void

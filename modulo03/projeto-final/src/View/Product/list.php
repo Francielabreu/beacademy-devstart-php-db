@@ -10,6 +10,7 @@
         <tr>
             <th>#ID</th>
             <th>NOME</th>
+            <th>CATEGORIA</th>
             <th>DESCRIÇÃO</th>
             <th>IMAGEM</th>
             <th>VALOR</th>
@@ -27,6 +28,7 @@
                 <tr>
                     <td>{$id}</td>
                     <td>{$name}</td>
+                    <td>{$category_id}</td>
                     <td>{$description}</td>
                     <td> <img width='60px' height='45px' src='{$photo}'> </td>
                     <td>{$valor}</td>
